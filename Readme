@@ -1,0 +1,14 @@
+1) credenciales de w
+  -eliminar los usuarios de github 
+
+2) abrir la carpeta del trabajo.
+   -donde se este desarrollando el trabajo actualmente 
+    poddata: si coloco mal el nombre no me califica 
+
+3) quitar la cuenta de otra persona en el muñequito 
+
+3) abrir la terminal y correr los siguientes dos comandos:
+    git config --global user.name "yohanendre"
+    git config --global user.email andresherrera050788@gmail.com
+
+4) subir siempre los cambios que acabo de ejecutar en la ultima version estable 
