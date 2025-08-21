@@ -8,7 +8,7 @@
 3) quitar la cuenta de otra persona en el muñequito 
 
 3) abrir la terminal y correr los siguientes dos comandos:
-    git config --global user.name "yohanendre"
+    git config --global user.name "Yohanendre"
     git config --global user.email andresherrera050788@gmail.com
 
 4) subir siempre los cambios que acabo de ejecutar en la ultima version estable 
