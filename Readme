@@ -12,3 +12,52 @@
     git config --global user.email andresherrera050788@gmail.com
 
 4) subir siempre los cambios que acabo de ejecutar en la ultima version estable 
+import math, random, time, statistics, functools, sys, tracemalloc 
+from typing import List, Dict, Any, Tuple, Optional, Callable 
+
+def rand_list(n:int, *, lo:int=0, hi:int=10**6,unique:bool=False) -> List[int]:
+    """genera una lista de de enteros aleatorios"""
+    if unique:
+        # asegura unicidad con sample (restringe rango)
+        return random.sample(range(lo, max(hi, lo+n+2)), n)
+    return [random.randint(lo, hi) for _ in range(n)]
+
+def timeit (func:Callable, *args, repeat:int=5, warmup:int=1, **kwargs) -> Tuple[float, List [float]]:
+    """cronometra func(*args, **kwargs). retorna (promedio, mediciones )."""
+    for _ in range(warmup):
+        func(*args, **kwargs)
+    samples = []
+    for _ in range(repeat):
+        t0 = time.perf_counter()
+        func(*args, **kwargs)
+        samples.append(time.perf_counter() - t0)
+    return statistics.mean(samples), samples 
+
+def print_stats(samples:List[float]):
+    print(f"n={len(samples)} mean={statistics.mean(samples):.6f}s median={statistics.median(samples):.6}s stdev{statistics.pstdev(samples):6f}s")
+
+
+random.seed(42)
+print("OK: utilidades listas.")
+
+
+
+# TODO 1: implementa busqueda lineal 0(n)
+def linear_search(xs:List[int], target:int) -> int:
+    for i, v in enumerate(xs):
+        if v == target:
+            return i
+    return -1
+
+# TODO 2: implementa busqueda binaria 0(log n) (precondicion: lista ordenada)
+def binary_search(sorted_xs:List[int], target:int) -> int:
+    lo, hi = 0, len(sorted_xs)-1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if sorted_xs[mid] == target:
+            return mid
+        if sorted_xs[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
